@@ -1,6 +1,6 @@
 import './StoryReel.css'
 import React from 'react';
-import Story from './Story';
+import Story from './Story/Story';
 
 const img = 'https://bi.im-g.pl/im/0b/a2/18/z25829387V,las--zdjecie-ilustracyjne---Od-3-kwietnia-obowiazu.jpg';
 

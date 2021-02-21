@@ -6,9 +6,9 @@ import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import PeopleIcon from '@material-ui/icons/People';
 import React from 'react';
 import StorefrontIcon from '@material-ui/icons/Storefront';
-import SidebarRow from './SidebarRow';
+import SidebarRow from './SidebarRow/SidebarRow';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
-import { useStateValue } from "./StateProvider";
+import { useStateValue } from "../../StateProvider";
 
 function Sidebar() {
     const [{ user }, dispatch] = useStateValue();

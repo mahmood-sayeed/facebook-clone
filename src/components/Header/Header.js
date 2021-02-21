@@ -11,7 +11,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import StorefrontOutlinedIcon from '@material-ui/icons/StorefrontOutlined';
 import SubscriptionsOutlinedIcon from '@material-ui/icons/SubscriptionsOutlined';
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
-import { useStateValue } from "./StateProvider";
+import { useStateValue } from "../../StateProvider";
 
 
 function Header() {
