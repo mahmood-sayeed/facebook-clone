@@ -15,7 +15,7 @@ function App() {
     {!user ? (
       <Login />
       ) : (
-        <Login>
+        <>
           <Header />
 
           <div className="app__body">
@@ -23,7 +23,7 @@ function App() {
             <Feed />
             <Widgets />
           </div>
-        </Login>
+        </>
     )}
     </div>
   );

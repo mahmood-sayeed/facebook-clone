@@ -1,5 +1,7 @@
 import './MessageSender.css'
 import { Avatar } from '@material-ui/core';
+import db from './firebase'
+import firebase from 'firebase';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 import React, { useState } from 'react';
@@ -9,15 +11,21 @@ import { useStateValue } from './StateProvider';
 function MessageSender() {
     const [{ user }, dispatch] = useStateValue();
     const [input, setInput] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
+    const [inputURL, setInputURL] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        //some db actions
+        db.collection('posts').add({
+            message: input,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            profilePic: user.photoURL,
+            username: user.displayName,
+            image: inputURL
+          })
 
         setInput("");
-        setImageUrl("");
+        setInputURL("");
     };
 
     return (
@@ -27,13 +35,15 @@ function MessageSender() {
                 <form>
                     <input
                         value={input}
-                        onChange={(e) => setInput(e.target.value)} 
+                        onChange={(e) => setInput(e.target.value)}
+                        type="text" 
                         className="messageSender__input"
-                        placeholder={`What's on your mind?, ${user.displayname}?`}     
+                        placeholder={`What's on your mind, ${user.displayName}?`}     
                     />
                     <input 
-                        value={imageUrl}
-                        onChange={(e) => setImageUrl(e.target.value)}
+                        value={inputURL}
+                        onChange={(e) => setInputURL(e.target.value)}
+                        type="text"
                         placeholder="image URL (Optional)"
                     />
 
