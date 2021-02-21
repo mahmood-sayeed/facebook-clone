@@ -8,13 +8,16 @@ import React from 'react';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import SidebarRow from './SidebarRow';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
+import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
+    const [{ user }, dispatch] = useStateValue();
+
     return (
         <div className="sidebar">
             <SidebarRow
-                src='https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg'
-                title='Mahmood Sayeed'
+                src={user.photoURL}
+                title={user.displayName}
             />
 
         <SidebarRow
